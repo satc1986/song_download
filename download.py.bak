@@ -1,0 +1,13 @@
+from pytube import YouTube
+from pytube import Playlist
+
+import os
+
+
+def video(url):
+    video_caller = YouTube(url)
+    print(video_caller.title)
+    video_caller.streams.filter(progressive=True,file_extension='mp4').order_by(
+            'resolution').desc().first().download()
+    print("Done!!")
+a = input("Type Video URL: ")
